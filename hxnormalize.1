@@ -1,0 +1,114 @@
+.TH "HXNORMALIZE" "1" "10 Jul 2011" "7.x" "HTML-XML-utils"
+.SH NAME
+hxnormalize \- pretty-print an HTML file
+.SH SYNOPSIS
+.B hxnormalize
+.RB "[\| " \-x " \|]"
+.RB "[\| " \-e " \|]"
+.RB "[\| " \-d " \|]"
+.RB "[\| " \-s " \|]"
+.RB "[\| " \-L " \|]"
+.RB "[\| " \-i
+.IR indent " \|]"
+.RB "[\| " \-l
+.IR line\-length " \|]"
+.RB "[\| " \-c
+.IR commentmagic " \|]"
+.RI "[\| " file-or-URL " \|]"
+.SH DESCRIPTION
+.LP
+The
+.B hxnormalize
+command pretty-prints an HTML file, and also tries to fix small
+errors. The output is the same HTML, but with a maximum line length
+and with optional indentation to indicate the nesting level of each
+line.
+.SH OPTIONS
+The following options are supported:
+.TP 10
+.B \-x
+Use XML conventions: empty elements are written with a slash at the
+end: <IMG\ />. Implies
+.BR \-e .
+.TP
+.B \-e
+Always insert endtags, even if HTML does not require them (for
+example: </p> and </li>).
+.TP
+.B \-d
+Omit the DOCTYPE from the output.
+.TP
+.BI \-i " indent"
+Set the number of spaces to indent each nesting level. Default is 2.
+Not all elements cause an indent. In general, elements that can occur
+in a block environment are started on a new line and cause an indent,
+but inline elements, such as EM and SPAN do not cause an indent.
+.TP
+.BI \-l " line\-length"
+Sets the maximum length of lines.
+.B hxnormalize
+will wrap lines so that all lines are as long as possible, but no
+longer than this length. Default is 72. Words that are longer than the
+line length will not be broken, and will extend past this length. A
+\"word\" is a sequence of characters delimited by white space.) The
+content of the STYLE, SCRIPT and PRE elements will not be
+line-wrapped.
+.TP
+.B \-s
+Omit <span> tags that don't have any attributes.
+.TP
+.B \-L
+Remove redundant "lang" and "xml:lang" attributes. (I.e., those whose
+value is the same as the language inherited from the parent element.)
+.TP
+.BI \-c " commentmagic"
+Comments are normally placed right after the preceding text. That is
+usually correct for short comments, but some comments are meant to be
+on a separate line.
+.I commentmagic
+is a string and when that string occurs inside a comment,
+.B hxnormalize
+will output an empty line before that comment. E.g. \fB\-c "===="\fR
+can be used to put all comments that contain "====" on a separate
+line, preceded by an empty line. By default, no comments are treated
+that way.
+.SH OPERANDS
+The following operand is supported:
+.TP 10
+.I file-or-URL
+The name or URL of an HTML file. If absent, standard input is read
+instead.
+.SH "EXIT STATUS"
+The following exit values are returned:
+.TP 10
+.B 0
+Successful completion.
+.TP
+.B > 0
+An error occurred in the parsing of the HTML file.
+.B hxnormalize
+will try to correct the error and produce output anyway.
+.SH ENVIRONMENT
+To use a proxy to retrieve remote files, set the environment variables
+.B http_proxy
+and
+.BR ftp_proxy "."
+E.g.,
+.B http_proxy="http://localhost:8080/"
+.SH BUGS
+.LP
+The error recovery for incorrect HTML is primitive.
+.LP
+.B hxnormalize
+will not omit an endtag if the white space after it could possibly be
+significant. E.g., it will not remove the first </p> from
+"<div><p>text</p> <p>text</p></div>".
+.LP
+.B hxnormalize
+can currently only retrieve remote files over HTTP. It doesn't handle
+password-protected files, nor files whose content depends on HTTP
+"cookies."
+.SH "SEE ALSO"
+.BR asc2xml (1),
+.BR xml2asc (1),
+.BR UTF-8 " (RFC 2279)"

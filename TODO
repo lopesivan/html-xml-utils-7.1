@@ -1,0 +1,27 @@
+- hxnormalize with option -x (produce XML syntax) could replace an
+  HTML4 doctype with one for XHTML1.
+- An option for hxnormalize to allow to break lines before the '>' of tags?
+- An option -d to hxwls for maximum recursion depth
+
+Suggestions from Werner Heuser <werner.heuser@web.de>
+
+- `printlinks' is a great help, but I would like some links not
+  to be touched, e.g. some graphics.
+
+- please include a download URL into the source. Imagine somebody
+  likes the program and wants to come back and get the current
+  version
+
+
+* Proprietary extensions
+
+Microsoft Internet Explorer accepts a proprietary extension to HTML
+that looks like malformed mark-up: "<![if xxx]>" or "<![endif]>"
+(where xxx is text that doesn't contain "]"). The parser currently
+reports (correctly) a syntax error. Should there be a mode in which
+this is accepted? If so, as what? as TEXT?
+
+
+ - An option for hxindex to remove TITLE attributes that were used?
+   This avoids that strange-looking titles with || or !! remain in the
+   document.
