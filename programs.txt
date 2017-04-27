@@ -1,0 +1,35 @@
+#-----------------------+---------------------------------------------------
+# original script       |  link name
+#-----------------------+---------------------------------------------------
+
+asc2xml                 | asc2xml
+cexport                 | cexport
+hxaddid                 | hxaddid
+hxcite                  | hxcite
+hxclean                 | hxclean
+hxcopy                  | hxcopy
+hxcount                 | hxcount
+hxextract               | hxextract
+hxincl                  | hxincl
+hxindex                 | hxindex
+hxmkbib                 | hxmkbib
+hxmultitoc              | hxmultitoc
+hxname2id               | hxname2id
+hxnormalize             | hxnormalize
+hxnsxml                 | hxnsxml
+hxnum                   | hxnum
+hxpipe                  | hxpipe
+hxprintlinks            | hxprintlinks
+hxprune                 | hxprune
+hxref                   | hxref
+hxremove                | hxremove
+hxselect                | hxselect
+hxtabletrans            | hxtabletrans
+hxtoc                   | hxtoc
+hxuncdata               | hxuncdata
+hxunent                 | hxunent
+hxunpipe                | hxunpipe
+hxunxmlns               | hxunxmlns
+hxwls                   | hxwls
+hxxmlns                 | hxxmlns
+xml2asc                 | xml2asc
