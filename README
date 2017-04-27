@@ -1,5 +1,16 @@
 [FORKED]
 
+~~~ sh
+    $ ./autogen.sh
+    $ ./configure
+    $ make
+    $ bash local-install-with-ln-s.sh
+    $ hxselect
+    $ which hxselect
+    $ bash local-rm-links.sh
+    $ hxselect
+~~~
+
 In this directory:
 
 html-xml-utils-*.tar.gz
